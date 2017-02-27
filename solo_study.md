@@ -179,6 +179,8 @@ Today is going to be a tough one. These challenges are tricky, and will need you
 - [ ] Update `js-asessment/app/async.js` to make the section's tests pass
 - [ ] Complete section 1 of [these exercises](http://ynonperek.com/javascript-exer.html)
 
+## Personal Stretch Goal All Exercises
+- [ ] Complete duplicate exercises in Java
 
 [el]:http://eloquentjavascript.net/
 [udacity]:https://www.udacity.com/course/javascript-basics--ud804
