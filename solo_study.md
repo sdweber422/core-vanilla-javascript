@@ -18,9 +18,9 @@ Your objectives for the day is to achieve:
 
 ### Plan
 
-- [ ] Signup for [Udacity Javascript Basics][udacity]
-- [ ] Complete [Getting up and running & Problem Set 0][udacity]
-- [ ] Complete [Data Types and Problem Set 1][udacity]
+- [X] Signup for [Udacity Javascript Basics][udacity]
+- [X] Complete [Getting up and running & Problem Set 0][udacity]
+- [X] Complete [Data Types and Problem Set 1][udacity]
 - [ ] Complete [Flow Control and Problem Set 2][udacity]
 - [ ] Complete [Quiz: Relationships][udacity]
 - [ ] Complete [Quiz: Astronaut Arrays][udacity]
