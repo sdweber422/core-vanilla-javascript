@@ -32,7 +32,7 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+    expect(productsICanEat.length).toBe(1);
   });
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
@@ -40,8 +40,10 @@ describe("About Applying What We Have Learnt", function() {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
+      productsICanEat = products.filter( product =>
+        !(product.ingredients.includes("mushrooms") || product.containsNuts === true) )
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(1);
   });
 
   /*********************************************************************************/
@@ -55,14 +57,22 @@ describe("About Applying What We Have Learnt", function() {
       }
     }
 
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
 
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
+    /* try chaining range() and reduce() */
+    var sum = Array.apply(null, Array(1000))
+      .map( (_, i) => i)
+        .reduce( (accumulator, value) => {
+          if (value % 3 === 0 || value % 5 === 0) {
+            return accumulator + value
+          }
+          return accumulator
+        }, 0);
 
-    expect(233168).toBe(FILL_ME_IN);
+    expect(233168).toBe(sum);
   });
 
   /*********************************************************************************/
@@ -75,15 +85,19 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
+    let answer = products.map( product => product.ingredients).reduce( ( memo, ingredientArray) => {
+      return memo.concat( ingredientArray )
+    }, []).map( ingredient => ingredientCount[ ingredient ] = ( ingredientCount[ ingredient ] || 0 ) + 1 )
+    console.log( 'ingredientCount', ingredientCount )
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
@@ -106,8 +120,25 @@ describe("About Applying What We Have Learnt", function() {
 
   });
 
-  it("should find the 10001st prime", function () {
-
-  });
   */
+  it("should find the 10001st prime", function () {
+    let primeArray = [2]
+    let number = 3
+    let check
+    while( primeArray.length < 10001 ) {
+      check = true
+      for ( let div = 3; div < number/2; div += 2 ) {
+        if ( number % div === 0 ) {
+          check = false
+          break
+        }
+      }
+      if ( check === true ) {
+        primeArray.push( number )
+      }
+      number += 2
+    }
+    expect( primeArray[10000] ).toBe( 104743 )
+  });
+
 });
